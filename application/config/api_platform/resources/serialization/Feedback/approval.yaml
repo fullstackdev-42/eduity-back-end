@@ -1,0 +1,15 @@
+App\Entity\Feedback\Approval:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['approval:read']
+        discussion:
+            groups: ['approval:read', 'approval:write']
+        isApproved:
+            groups: ['approval:read', 'approval:write']
+        createdBy:
+            groups: ['approval:read']
+        createdAt:
+            groups: ['approval:read']
+        updatedAt:
+            groups: ['approval:read']

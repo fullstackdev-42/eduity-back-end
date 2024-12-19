@@ -1,0 +1,40 @@
+App\DTO\Security\CodeConfirm:
+  attributes:
+    normalization_context:
+      groups: ['read']
+    denormalization_context:
+      groups: ['write']
+      
+  itemOperations: {}
+  collectionOperations:
+    register_confirm:
+      path: /user/register/confirm
+      method: POST
+      output: false
+      defaults:
+        type: register_confirm
+      swagger_context:
+        tags: [Authentication]
+        summary: Confirm User Email
+
+    unlock_account:
+      path: /user/unlock/confirm
+      method: POST
+      validation_groups: [Default]
+      defaults:
+        type: unlock_account_confirm
+      output: false
+      swagger_context:
+        tags: [Authentication]
+        summary: Confirm unlock account
+
+    accept_user_invitation:
+      path: /user_invitations/accept
+      method: POST
+      validation_groups: [Default]
+      defaults:
+        type: accept_user_invitation
+      output: false
+      swagger_context:
+        tags: [User Invitation]
+        summary: Accept User Invitation

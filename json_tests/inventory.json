@@ -1,0 +1,100 @@
+{
+    "id": "uuid",
+    "name": "Job Inventory",
+    "organization": "/v1/organizations/1eb73ef7-8e67-6e0e-997a-513aa01ee2a7",
+    "nodes": [ 
+        //the order of the node and children array does matter
+        {
+            "id": "uuid",
+            "elements": [
+                {
+                    "id": "uuid",
+                    "type": "Category",
+                    "name": "Executives",
+                    "description": "Company Executives"
+                }
+            ],
+            "children": [ //Node children
+                {
+                    "id": "uuid",
+                    "elements": [
+                        {
+                            "id": "uuid",
+                            "type": "Job",
+                            "name": "CEO",
+                            "description": "Chief Executive Officer",
+                            "attributes": [
+                                {
+                                    "id": "uuid",
+                                    "name": "title",
+                                    "originatorType": "Onet",
+                                    "originatorId": "1.A.2.a",
+                                    "content": {  
+                                        //json data
+                                    }
+                                }
+                            ],
+                            "subElements": [
+                                {
+                                    "id": "uuid",
+                                    "type": "Requirements",
+                                    "name": "Requirements",
+                                    "description": "Job Requirements",
+                                    "attributes": [
+                                        {
+                                            "id": "uuid",
+                                            "name": "title",
+                                            "originatorType": "Onet",
+                                            "originatorId": "1.A.2.a",
+                                            "content": {  
+                                                //json data
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "uuid",
+                                    "type": "Goals",
+                                    "name": "Goals",
+                                    "description": "Job Goals",
+                                    "attributes": [
+                                        {
+                                            "name": "title",
+                                            "originatorType": "Onet",
+                                            "originatorId": "1.A.2.a",
+                                            "content": {  
+                                                //json data
+                                            }
+                                        }
+                                    ],
+                                    "subElements": [
+                                        {
+                                            "id": "uuid",
+                                            "type": "Tasks",
+                                            "name": "Tasks",
+                                            "description": "Job Tasks",
+                                            "attributes": [
+                                                {
+                                                    "name": "title",
+                                                    "originatorType": "Onet",
+                                                    "originatorId": "1.A.2.a",
+                                                    "content": {  
+                                                        //json data
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "startDate": "2021-03-01T00:00:00.000Z", // optional
+                    "endDate": "2021-03-01T00:00:00.000Z"    // optional
+                }
+            ],
+            "startDate": "2021-03-01T00:00:00.000Z", // optional
+            "endDate": "2021-03-01T00:00:00.000Z"    // optional
+        }
+    ]
+}

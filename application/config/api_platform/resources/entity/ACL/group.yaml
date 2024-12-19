@@ -1,0 +1,33 @@
+App\Entity\ACL\Group:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+
+  attributes:
+      route_prefix: /security
+      normalization_context:
+        groups: ['group:read']
+      denormalization_context:
+        groups: ['group:write']
+
+  collectionOperations:
+    post:
+      openapi_context: 
+        validation_groups: [Default, create]
+        tags: [Security Group]
+    get:
+      openapi_context:
+        tags: [Security Group]
+            
+  itemOperations:
+    get:
+      openapi_context:
+        tags: [Security Group]
+    patch:
+      openapi_context:
+        tags: [Security Group]
+    delete: 
+      openapi_context:
+        tags: [Security Group]

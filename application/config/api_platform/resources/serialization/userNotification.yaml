@@ -1,0 +1,17 @@
+App\Entity\UserNotification:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['user_notification:read']
+        type:
+            groups: ['user_notification:read', 'user_notification:write']
+        user:
+            groups: ['user_notification:read', 'user_notification:write']
+        data:
+            groups: ['user_notification:read', 'user_notification:write']
+        hasRead:
+            groups: ['user_notification:read', 'user_notification:write']
+        createdAt:
+            groups: ['user_notification:read']
+        updatedAt:
+            groups: ['user_notification:read']

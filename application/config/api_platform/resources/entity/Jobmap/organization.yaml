@@ -1,0 +1,35 @@
+App\Entity\Jobmap\Organization:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+
+  attributes:
+    normalization_context:
+      groups: ['organization:read']
+    denormalization_context:
+      groups: ['organization:write']
+
+  collectionOperations:
+    post:
+      openapi_context: 
+        validation_groups: [Default, create]
+        tags: [Organization]
+    get:
+      openapi_context:
+        tags: [Organization]
+
+  itemOperations:
+    get:
+      security: "is_granted('perm_read', object)"
+      openapi_context:
+        tags: [Organization]
+    patch:
+      security: "is_granted('perm_edit', object)"
+      openapi_context:
+        tags: [Organization]
+    delete: 
+      security: "is_granted('perm_delete', object)"
+      openapi_context:
+        tags: [Organization]

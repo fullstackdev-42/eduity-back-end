@@ -1,0 +1,57 @@
+App\Entity\UserLocation:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['user_locations:read', 
+                'user:read']
+        name:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        isPrimary:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        streetAddress1:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        streetAddress2:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        city:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        state:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        country:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        zipcode:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        website:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        phoneNumber:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        faxNumber:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        latitudeAndLongitude:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        email:
+            groups: ['user_locations:read', 'user_locations:write', 
+                'user:read', 'user:write']
+        createdAt:
+            groups: ['user_locations:read', 
+                'user:read']
+        updatedAt:
+            groups: ['user_locations:read', 
+                'user:read']
+        createdBy:
+            groups: ['user_locations:read', 
+                'user:read']
+        updatedBy:
+            groups: ['user_locations:read', 
+                'user:read']

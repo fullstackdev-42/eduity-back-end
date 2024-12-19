@@ -1,0 +1,15 @@
+api_platform:
+    eager_loading:
+        max_joins: 1000
+    mapping:
+        paths:
+            - '%kernel.project_dir%/config/api_platform/resources'
+    patch_formats:
+        json: ['application/json']
+        jsonapi:  ['application/vnd.api+json']
+    swagger:
+        versions: [3]
+        api_keys:
+            apiKey:
+                name: Authorization
+                type: header

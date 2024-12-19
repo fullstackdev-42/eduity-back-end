@@ -1,0 +1,17 @@
+App\Entity\ACL\Permission:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['permission:read']
+        name:
+            groups: ['permission:read', 'permission:write']
+        operation:
+            groups: ['permission:read', 'permission:write']
+        contexts:
+            groups: ['permission:read', 'permission:write']
+        class:
+            groups: ['permission:read', 'permission:write']
+        field:
+            groups: ['permission:read', 'permission:write']
+
+    

@@ -1,0 +1,118 @@
+#based off https://github.com/joeymasip/docker-symfony4
+#https://docs.docker.com/docker-for-mac/osxfs-caching/
+
+version: "3.1"
+services:
+    #redis:
+    #  image: redis:alpine
+    #  restart: always
+    #  container_name: eduity-redis
+    #  networks:
+    #    - backend
+
+    postgres:
+      image: postgres:9.6-alpine
+      restart: always
+      container_name: eduity-postgres
+      ports:
+            - "${EDUITY_POSTGRES_PORT}:5432"
+      networks:
+        - backend
+      volumes:
+        - ./docker/data/postgres:/var/lib/postgresql/data:delegated
+      environment:
+        - POSTGRES_USER=${EDUITY_POSTGRES_USER}
+        - POSTGRES_PASSWORD=${EDUITY_POSTGRES_PASSWORD}
+        - POSTGRES_DB=${EDUITY_POSTGRES_DB}
+
+    mysql:
+      image: mysql:8
+      restart: always
+      container_name: eduity-mysql
+      networks:
+        - backend
+      volumes:
+        - ./docker/data/mysql:/var/lib/mysql
+      environment:
+        - MYSQL_DATABASE=${EDUITY_MYSQL_DB}
+        - MYSQL_USER=${EDUITY_MYSQL_USER}
+        - MYSQL_PASSWORD=${EDUITY_MYSQL_PASSWORD}
+        - MYSQL_ROOT_PASSWORD=${EDUITY_MYSQL_ROOT_PASSWORD}
+
+    apache:
+        build: docker/apache
+        restart: always
+        container_name: eduity-apache
+        networks:
+            - backend
+            - frontend
+        ports:
+            - "${EDUITY_APACHE_PORT}:80"
+        links:
+            - php
+        volumes:
+            - ./application/public:/var/www/html/public:delegated
+            - ./docker/apache/logs:/var/log/apache2:delegated
+
+    php:
+        build: docker/php-fpm
+        container_name: eduity-php
+        restart: always
+        networks:
+            - backend
+        links:
+            - postgres
+            - mysql
+        #    - redis
+        volumes:
+            - ./application:/var/www/html:delegated
+        
+        environment:
+            POSTGRES_DATABASE_URL: postgres://${EDUITY_POSTGRES_USER}:${EDUITY_POSTGRES_PASSWORD}@postgres/${EDUITY_POSTGRES_DB}
+            MYSQL_DATABASE_URL: mysql://${EDUITY_MYSQL_USER}:${EDUITY_MYSQL_PASSWORD}@mysql/${EDUITY_MYSQL_DB}
+
+    pgadmin:
+        image: dpage/pgadmin4
+        container_name: eduity-pgadmin
+        restart: always
+        networks:
+            - backend
+            - frontend
+        ports:
+            - "${EDUITY_PGADMIN_PORT}:80"
+        links:
+            - postgres
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=${EDUITY_PGADMIN_DEFAULT_EMAIL}
+            - PGADMIN_DEFAULT_PASSWORD=${EDUITY_PGADMIN_DEFAULT_PASSWORD}
+
+    phpmyadmin:
+        image: phpmyadmin:5-apache
+        container_name: eduity-phpmyadmin
+        restart: always
+        networks:
+            - backend
+            - frontend
+        ports:
+            - "${EDUITY_PHPMYADMIN_PORT}:80"
+        links:
+            - mysql
+        environment:
+            - PMA_HOST=mysql
+            - PMA_PORT=3306
+            - PMA_USER=root
+            - PMA_PASSWORD=${EDUITY_MYSQL_ROOT_PASSWORD}
+            - UPLOAD_LIMIT=3000000000
+networks:
+  frontend:
+  backend:
+
+volumes:
+    postgres:
+        driver_opts:
+            device: ./docker/data/postgres 
+            type: nfs
+    mysql:
+        driver_opts:
+            device: ./docker/data/mysql
+            type: nfs

@@ -1,0 +1,38 @@
+App\Entity\Jobmap\OrganizationLocation:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+  attributes:
+    normalization_context:
+      groups: ['organization_location:read']
+    denormalization_context:
+      groups: ['organization_location:write']
+
+  collectionOperations:
+    post:
+      path: /organization/locations
+      validation_groups: [Default, create]
+      openapi_context: 
+        tags: [Organization]
+    get:
+      path: /organization/locations
+      openapi_context:
+        tags: [Organization]
+
+  itemOperations:
+    get:
+      path: /organization/locations/{id}
+      openapi_context:
+        tags: [Organization]
+    patch:
+      access_control: "object.organization.getOwner() == user"
+      path: /organization/locations/{id}
+      openapi_context:
+        tags: [Organization]
+    delete: 
+      access_control: "object.organization.getOwner() == user"
+      path: /organization/locations/{id}
+      openapi_context:
+        tags: [Organization]

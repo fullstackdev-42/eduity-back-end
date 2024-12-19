@@ -1,0 +1,33 @@
+App\Entity\Jobmap\Element:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['element:read']
+        revisionId: 
+            groups: ['element:read']
+        type: 
+            groups: ['element:read', 'element:write']
+        name: 
+            groups: ['element:read', 'element:write']
+        description:
+            groups: ['element:read', 'element:write']
+        node:
+            groups: ['element:read', 'element:write']
+        parent:
+            groups: ['element:read', 'element:write']
+        subElements:
+            groups: ['element:read', 'element:write']
+        attributes:
+            groups: ['element:read', 'element:write']
+        startDate:
+            groups: ['element:read', 'element:write']
+        endDate:
+            groups: ['element:read', 'element:write']
+        createdAt:
+            groups: ['element:read']
+        updatedAt:
+            groups: ['element:read']
+        createdBy:
+            groups: ['element:read']
+        updatedBy:
+            groups: ['element:read']

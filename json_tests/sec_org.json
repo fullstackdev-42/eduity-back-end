@@ -1,0 +1,14 @@
+{
+    "organization": "/v1/organizations/1eb7367a-b790-6d88-a7a4-a3d3f6db37ee",
+    "id": "1eb7367a-b792-62c8-aafe-b784d54ff8ab",
+    "users": [
+        "/v1/users/1eb092a4-4bed-68ea-9f66-adbc9e7b303f"
+    ],
+    "groups": [
+      "/v1/security/groups/1eb7367a-b868-6490-9425-9701b0a6b67d",
+      "/v1/security/groups/1eb7367a-b868-6238-94bf-abb4e028b69a",
+      "/v1/security/groups/1eb7367a-b868-69ea-8e22-63de45ab5a56",
+      "/v1/security/groups/1eb7367a-b868-66fc-8e20-99c9c2a6b7d9",
+      "/v1/security/groups/1eb7367a-b867-6f0e-8bd8-a35261120b2a"
+    ]
+}

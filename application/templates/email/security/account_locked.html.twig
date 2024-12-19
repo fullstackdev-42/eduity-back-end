@@ -1,0 +1,15 @@
+{%  extends 'email/base.html.twig' %}
+
+{%  block body %}
+    <h3>Greetings {{  user.firstName ? user.firstName : 'User' }},<h3>
+    <p>
+        Your eduity account has exceeded the login attempts and has been locked.<br/> 
+        
+        This may been caused by malcious users, so if you are unsure, we recommend changing your password
+        immediately after unlocking and successly logging in!<br/>
+        
+        <a href="{{ url('api_code_confirms_unlock_account_collection', {'id': user.id, 'code': user.unlockCode()}) }}">Click here to unlock account.</a>
+    </p>
+   
+
+{%  endblock %}

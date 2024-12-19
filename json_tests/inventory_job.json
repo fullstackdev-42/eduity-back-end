@@ -1,0 +1,173 @@
+{ //inventory
+    "id": "uuid",
+    "name": "Job Inventory",
+    "organization": "/v1/organizations/1eb73ef7-8e67-6e0e-997a-513aa01ee2a7",
+    "nodes": [ 
+        {
+            "id": "uuid",
+            "elements": [
+                {
+                    "id": "uuid",
+                    "type": "Job",
+                    "name": "Chief Executives",
+                    "description": "Determine and formulate policies and provide overall direction of companies or private and public sector organizations within guidelines set up by a board of directors or similar governing body. Plan, direct, or coordinate operational activities at the highest level of management with the help of subordinate executives and staff managers.",
+                    "attributes": [
+                        {
+                            "id": "uuid",
+                            "name": "title",
+                            "originatorType": "Onet",
+                            "originatorId": "11-1011.00",
+                            "content": {  
+                                "title": "Chief Executives"
+                            }
+                        },
+                        {
+                            "id": "uuid",
+                            "name": "tags",
+                            "originatorType": "Onet",
+                            "originatorId": "11-1011.00",
+                            "content": {  
+                                "tags": {
+                                    "bright_outlook" : false,
+                                    "green" : false,
+                                    "apprenticeship" : false
+                                }
+                            }
+                        },
+                        {
+                            "id": "uuid",
+                            "name": "also_called",
+                            "originatorType": "Onet",
+                            "originatorId": "11-1011.00",
+                            "content": {  
+                                "title" : [
+                                    "Chief Executive Officer (CEO)",
+                                    "Chief Financial Officer (CFO)"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "uuid",
+                            "name": "what_they_do",
+                            "originatorType": "Onet",
+                            "originatorId": "11-1011.00",
+                            "content": {  
+                                "what_they_do": "Determine and formulate policies and provide overall direction of companies or private and public sector organizations within guidelines set up by a board of directors or similar governing body. Plan, direct, or coordinate operational activities at the highest level of management with the help of subordinate executives and staff managers.",
+                            }
+                        },
+                        {
+                            "id": "uuid",
+                            "name": "on_the_job",
+                            "originatorType": "Onet",
+                            "originatorId": "11-1011.00",
+                            "content": {  
+                                "task" : [
+                                    "Direct or coordinate an organization's financial or budget activities to fund operations, maximize investments, or increase efficiency.",
+                                    "Appoint department heads or managers and assign or delegate responsibilities to them.",
+                                    "Analyze operations to evaluate performance of a company or its staff in meeting objectives or to determine areas of potential cost reduction, program improvement, or policy change."
+                                 ]
+                            }
+                        },
+                        {
+                            "id": "uuid",
+                            "name": "resources",
+                            "originatorType": "Onet",
+                            "originatorId": "11-1011.00",
+                            "content": {  
+                                "resource" : [
+                                    {
+                                       "href" : "https://services.onetcenter.org/v1.9/ws/mnm/careers/11-1011.00/knowledge",
+                                       "title" : "Knowledge"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "subElements": [
+                        {
+                            "id": "uuid",
+                            "type": "abilities",
+                            "name": "Abilities",
+                            "description": "Job Abilities",
+                            "attributes": [
+                                {
+                                    "id": "uuid",
+                                    "name": "group",
+                                    "originatorType": "Onet",
+                                    "originatorId": "1.A",
+                                    "content": {  
+                                        //json data
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "uuid",
+                            "type": "Goals",
+                            "name": "Goals",
+                            "description": "Job Goals",
+                            "attributes": [
+                                {
+                                    "name": "title",
+                                    "originatorType": "Onet",
+                                    "originatorId": "1.A.2.a",
+                                    "content": {  
+                                        //json data
+                                    }
+                                }
+                            ],
+                            "subElements": [
+                                {
+                                    "id": "uuid",
+                                    "type": "Tasks",
+                                    "name": "Tasks",
+                                    "description": "Job Tasks",
+                                    "attributes": [
+                                        {
+                                            "name": "title",
+                                            "originatorType": "Onet",
+                                            "originatorId": "1.A.1.a.1",
+                                            "content": {  
+                                                "name" : "listen and understand what people say",
+                                                "group": {
+                                                    "id" : "1.A.1.a",
+                                                    "name" : "Verbal"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "name": "title",
+                                            "originatorType": "Onet",
+                                            "originatorId": "1.A.1.a.3",
+                                            "content": {  
+                                                "name" : "communicate by speaking",
+                                                "group": {
+                                                    "id" : "1.A.1.a",
+                                                    "name" : "Verbal"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "startDate": "2021-03-01T00:00:00.000Z", // optional
+            "endDate": "2021-03-01T00:00:00.000Z"    // optional
+        }
+    ]
+}
+
+> What is type category? Would this be units or jobs?
+
+Units i think.
+
+> What is the order and how does it matter?
+Node order means the array stack. The first node in the array should be represented at the top of the tree node, and the last node is at the bottom. 
+That is why Order "matters". The backend will infer the tree position from the order automaticly
+
+> What are the Node children?  
+
+The nodes children 

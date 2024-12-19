@@ -1,0 +1,23 @@
+App\Entity\UserInvitation:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['user_invitation:read']
+        user:
+            groups: ['user_invitation:read', 'user_invitation:write']
+        email:
+            groups: ['user_invitation:read', 'user_invitation:write']
+        owner:
+            groups: ['user_invitation:read']
+        organization:
+            groups: ['user_invitation:read', 'user_invitation:write']
+        groups:
+            groups: ['user_invitation:read', 'user_invitation:write']
+        unit:
+            groups: ['user_invitation:read', 'user_invitation:write']
+        permissions:
+            groups: ['user_invitation:read', 'user_invitation:write']
+        createdAt:
+            groups: ['user_invitation:read']
+        updatedAt:
+            groups: ['user_invitation:read']

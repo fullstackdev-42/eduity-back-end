@@ -1,0 +1,17 @@
+App\Entity\Feedback\CommentThread:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['commentThread:read']
+        discussion:
+            groups: ['commentThread:read', 'commentThread:write']
+        name:
+            groups: ['commentThread:read', 'commentThread:write']
+        description:
+            groups: ['commentThread:read', 'commentThread:write']
+        comments:
+            groups: ['commentThread:read', 'commentThread:write']
+        createdAt:
+            groups: ['commentThread:read']
+        updatedAt:
+            groups: ['commentThread:read']

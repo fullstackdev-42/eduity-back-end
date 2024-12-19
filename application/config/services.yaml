@@ -1,0 +1,67 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: 'en'
+    
+    default_sender_email: noreply@eduity.net
+    
+    account_lockout_interval: P1D
+    max_account_login_attempts: 3
+    internal.blog.articles_display_limit: 5
+
+    ACL:
+        identities:
+            - App\Entity\User
+            - App\Entity\ACL\Group
+        subjects:
+            - App\Entity\JobMap\Organization
+            - App\Entity\JobMap\Inventory
+            - App\Entity\JobMap\Node
+            - App\Entity\JobMap\Unit
+            - App\Entity\JobMap\Attribute
+    
+    Discussion:
+        subjects:
+            - App\Entity\Jobmap\Organization
+            - App\Entity\Jobmap\Inventory
+            - App\Entity\Jobmap\Unit
+            
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    App\EventSubscriber\Doctrine\GenerateUUIDLifecycle:
+        tags:
+            - { name: 'doctrine.event_listener', event: 'prePersist', connection: 'default', priority: 1000 }
+
+    App\EventSubscriber\Doctrine\SetOwnerLifecycle:
+        tags:
+            - { name: 'doctrine.event_listener', event: 'prePersist', connection: 'default', priority: 500 }
+
+
+    App\Services\DoctrineExtensions\OwnerCollectionExtension:
+        tags:
+            - { name: api_platform.doctrine.orm.query_extension.collection, priority: 10 }
+
+    App\DataPersister\Jobmap\InventoryPersister:
+        decorates: 'api_platform.doctrine.orm.data_persister'

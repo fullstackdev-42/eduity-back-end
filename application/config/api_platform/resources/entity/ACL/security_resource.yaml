@@ -1,0 +1,41 @@
+App\Entity\ACL\SecurityResource:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+
+  attributes:
+      input: App\DTO\ACL\SecurityResourceDTO
+      output: App\DTO\ACL\SecurityResourceDTO
+      route_prefix: /security
+
+  collectionOperations:
+    post:
+      openapi_context: 
+        validation_groups: [Default, create]
+        tags: [Security Resource]
+    get:
+      openapi_context:
+        tags: [Security Resource]
+        parameters:
+          - name: subjectClassname
+            in: query
+            description: Internal classname for the subject
+            type: string
+          - name: subjectId
+            in: query
+            type: string
+            
+  itemOperations:
+    get:
+      openapi_context:
+        tags: [Security Resource]
+    patch:
+      access_control: "object.getOwner() == user"
+      openapi_context:
+        tags: [Security Resource]
+    delete: 
+      access_control: "object.getOwner() == user"
+      openapi_context:
+        tags: [Security Resource]

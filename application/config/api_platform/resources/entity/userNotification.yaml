@@ -1,0 +1,43 @@
+App\Entity\UserNotification:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+  attributes:
+    normalization_context:
+      groups: ['user_notification:read']
+    denormalization_context:
+      groups: ['user_notification:write']
+      jsonld_context:
+        ### Fix for JSON types https://github.com/api-platform/admin/issues/179 ###
+        "@type": http://www.w3.org/2001/XMLSchema#array
+
+  collectionOperations:
+    post:
+      path: "/notifications"
+      access_control: "object.getUser() == user"
+      openapi_context: 
+        validation_groups: [Default, create]
+        tags: [User Notification]
+    get:
+      path: "/notifications"
+      openapi_context: 
+          tags: [User Notification]
+
+  itemOperations:
+    get:
+      path: "/notifications/{id}"
+      access_control: "object.getUser() == user"
+      openapi_context:
+        tags: [User Notification]
+    patch:
+      path: "/notifications/{id}"
+      access_control: "object.user == user"
+      openapi_context:
+        tags: [User Notification]
+    delete: 
+      path: "/notifications/{id}"
+      access_control: "object.user == user"
+      openapi_context:
+        tags: [User Notification]

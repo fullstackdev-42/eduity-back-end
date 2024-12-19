@@ -1,0 +1,24 @@
+App\Entity\User:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['user:read']
+        email:
+            groups: ['user:read', 'user:write']
+        plainPassword:
+            serialized_name: 'password'
+            groups: ['user:write']
+        roles:
+            groups: ['user:read']
+        firstName:
+            groups: ['user:read', 'user:write']
+        lastName:
+            groups: ['user:read', 'user:write']
+        isEmailConfirmed:
+            groups: ['user:read']
+        createdAt:
+            groups: ['user:read']
+        updatedAt:
+            groups: ['user:read']
+        locations:
+            groups: ['user:read', 'user:write']

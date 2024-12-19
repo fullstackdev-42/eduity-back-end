@@ -1,0 +1,36 @@
+App\Entity\Feedback\Comment:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+  attributes:
+    normalization_context:
+      groups: ['comment:read']
+    denormalization_context:
+      groups: ['comment:write']
+    route_prefix: /feedback/discussions/comment_threads
+
+  collectionOperations:
+    post:
+      validation_groups: [Default, create]
+      openapi_context: 
+        tags: [Feedback]
+    get:
+      method: GET
+      openapi_context:
+        tags: [Feedback]
+
+  itemOperations:
+    get:
+      access_control: "object == user"
+      openapi_context:
+        tags: [Feedback]
+    patch:
+      access_control: "object == user"
+      openapi_context:
+        tags: [Feedback]
+    delete: 
+      access_control: "object == user"
+      openapi_context:
+        tags: [Feedback]

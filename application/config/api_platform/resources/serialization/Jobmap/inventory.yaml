@@ -1,0 +1,19 @@
+App\Entity\Jobmap\Inventory:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['inventory:read']
+        name:
+            groups: ['inventory:read', 'inventory:write']
+        organization:
+            groups: ['inventory:read', 'inventory:write']
+        nodes:
+            groups: ['inventory:read', 'inventory:write']
+        createdAt:
+            groups: ['inventory:read']
+        updatedAt:
+            groups: ['inventory:read']
+        createdBy:
+            groups: ['inventory:read']
+        updatedBy:
+            groups: ['inventory:read']

@@ -1,0 +1,15 @@
+App\Entity\Feedback\Rating:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['rating:read']
+        discussion:
+            groups: ['rating:read', 'rating:write']
+        score:
+            groups: ['rating:read', 'rating:write']
+        createdBy:
+            groups: ['approval:read']
+        createdAt:
+            groups: ['rating:read']
+        updatedAt:
+            groups: ['rating:read']

@@ -1,0 +1,32 @@
+App\Entity\Feedback\Discussion:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+
+  attributes:
+      input: App\Entity\Feedback\Discussion
+      output: App\Entity\Feedback\Discussion
+      route_prefix: /feedback
+
+  collectionOperations:
+    get:
+      openapi_context:
+        tags: [Feedback]
+        parameters:
+          - name: subjectClassname
+            in: query
+            description: Internal classname for the subject
+            type: string
+          - name: subjectId
+            in: query
+            type: string
+            
+  itemOperations:
+    get:
+      openapi_context:
+        tags: [Feedback]
+    patch:
+      openapi_context:
+        tags: [Feedback]

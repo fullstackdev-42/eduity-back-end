@@ -1,0 +1,31 @@
+App\Entity\ACL\SecurityOrganization:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+
+  attributes:
+      route_prefix: /security
+      normalization_context:
+        groups: ['security_organization:read']
+      denormalization_context:
+        groups: ['security_organization:write']
+  
+  collectionOperations:
+    get:
+      openapi_context:
+        tags: [Security Organization]
+    post:
+      output: false
+      status: 404
+      openapi_context:
+        tags: [Security Organization]
+
+  itemOperations:
+    get:
+      openapi_context:
+        tags: [Security Organization]
+    patch:
+      openapi_context:
+        tags: [Security Organization]

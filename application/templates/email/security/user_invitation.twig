@@ -1,0 +1,8 @@
+{%  extends 'email/base.html.twig' %}
+
+{%  block body %}
+    <h3>You have been invited to join {{ userInvitation.organization.name }} on Eduity<h3>
+    <p>
+        <a href="{{ url('accept_user_invitation', {'id': userInvitation.Uuid, 'code': userInvitation.acceptCode}) }}">Click here to accept invite.</a>
+    </p>
+{%  endblock %}

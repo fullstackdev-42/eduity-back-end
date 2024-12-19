@@ -1,0 +1,41 @@
+App\Entity\User:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+    locations:
+      readableLink: false
+
+  attributes:
+    normalization_context:
+      groups: ['user:read']
+    denormalization_context:
+      groups: ['user:write']
+
+  collectionOperations:
+    post:
+      path: /user/register/
+      method: POST
+      validation_groups: [Default, create]
+      openapi_context: 
+          tags: [Authentication]
+          summary: User registration
+    get:
+      method: GET
+      openapi_context:
+        tags: [User]
+
+  itemOperations:
+    get:
+      access_control: "object == user"
+      openapi_context:
+        tags: [User]
+    patch:
+      access_control: "object == user"
+      openapi_context:
+        tags: [User]
+    delete: 
+      access_control: "object == user"
+      openapi_context:
+        tags: [User]

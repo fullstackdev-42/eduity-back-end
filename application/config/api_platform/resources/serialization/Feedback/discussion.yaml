@@ -1,0 +1,17 @@
+App\Entity\Feedback\Discussion:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['discussion:read']
+        commentThreads:
+            groups: ['discussion:read', 'discussion:write']
+        polls:
+            groups: ['discussion:read', 'discussion:write']
+        approval:
+            groups: ['discussion:read', 'discussion:write']
+        rating:
+            groups: ['discussion:read', 'discussion:write']
+        createdAt:
+            groups: ['discussion:read']
+        updatedAt:
+            groups: ['discussion:read']

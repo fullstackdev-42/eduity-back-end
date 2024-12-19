@@ -1,0 +1,10 @@
+/nbproject
+/docker/apache/logs/
+/docker/data
+/docker/docker-entrypoint-initdb.d
+/application/storage
+/.env
+/.env.local
+/.env.local.php
+/.env.*.local
+.idea

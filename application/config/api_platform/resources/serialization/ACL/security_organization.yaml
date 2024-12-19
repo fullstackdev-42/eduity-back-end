@@ -1,0 +1,11 @@
+App\Entity\ACL\SecurityOrganization:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['security_organization:read']
+        organization:
+            groups: ['security_organization:read']
+        users:
+            groups: ['security_organization:read', 'security_organization:write']
+        groups:
+            groups: ['security_organization:read', 'security_organization:write']

@@ -1,0 +1,51 @@
+App\Entity\Jobmap\Organization:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['organization:read']
+        name:
+            groups: ['organization:read', 'organization:write']
+        entityType:
+            groups: ['organization:read', 'organization:write']
+        missionStatement:
+            groups: ['organization:read', 'organization:write']
+        valueProposition:
+            groups: ['organization:read', 'organization:write']
+        websiteURL:
+            groups: ['organization:read', 'organization:write']
+        mainPhone:
+            groups: ['organization:read', 'organization:write']
+        mainEmail:
+            groups: ['organization:read', 'organization:write']
+        naicsMajor:
+            groups: ['organization:read', 'organization:write']
+        naicsMinor:
+            groups: ['organization:read', 'organization:write']
+        administrator:
+            groups: ['organization:read', 'organization:write']
+        totalEmployees:
+            groups: ['organization:read', 'organization:write']
+        annualRevenue:
+            groups: ['organization:read', 'organization:write']
+        financialYearEnds:
+            groups: ['organization:read', 'organization:write']
+        fullTimeHoursPerWeek:
+            groups: ['organization:read', 'organization:write']
+        businessHours:
+            groups: ['organization:read', 'organization:write']
+        dateFounded:
+            groups: ['organization:read', 'organization:write']
+        locations:
+            groups: ['organization:read', 'organization:write']
+        inventories:
+            groups: ['none']
+        securityOrganization:
+            groups: ['none']
+        createdAt:
+            groups: ['none']
+        updatedAt:
+            groups: ['none']
+        createdBy:
+            groups: ['none']
+        updatedBy:
+            groups: ['none']

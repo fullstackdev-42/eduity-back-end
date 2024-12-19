@@ -1,0 +1,13 @@
+App\Entity\ACL\Group:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['group:read']
+        organization:
+            groups: ['group:read', 'group:write']
+        name:
+            groups: ['group:read', 'group:write']
+        users:
+            groups: ['group:read', 'group:write']
+        priority:
+            groups: ['group:read', 'group:write']     

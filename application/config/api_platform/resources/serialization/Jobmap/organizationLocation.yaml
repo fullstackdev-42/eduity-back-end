@@ -1,0 +1,63 @@
+App\Entity\Jobmap\OrganizationLocation:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['organization_locations:read', 
+                'organization:read']
+        name:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        businessOpenHours:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        businessCloseHours:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        isPrimary:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        streetAddress1:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        streetAddress2:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        city:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        state:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        country:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        zipcode:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        website:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        phoneNumber:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        faxNumber:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        latitudeAndLongitude:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        email:
+            groups: ['organization_locations:read', 'organization_locations:write', 
+                'organization:read', 'organization:write']
+        createdAt:
+            groups: ['organization_locations:read', 
+                'organization:read']
+        updatedAt:
+            groups: ['organization_locations:read', 
+                'organization:read']
+        createdBy:
+            groups: ['organization_locations:read', 
+                'organization:read']
+        updatedBy:
+            groups: ['organization_locations:read', 
+                'organization:read']

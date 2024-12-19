@@ -1,0 +1,30 @@
+App\Entity\Jobmap\Node:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['node:read']
+        revisionId: 
+            groups: ['node:read', 'node:write']
+        inventory:
+            groups: ['node:read', 'node:write']
+        root:
+            groups: ['node:read', 'node:write']
+        parent:
+            groups: ['node:read', 'node:write']
+        children:
+            max_depth: 10
+            groups: ['node:read', 'node:write']
+        startDate:
+            groups: ['node:read', 'node:write']
+        endDate:
+            groups: ['node:read', 'node:write']
+        elements:
+            groups: ['node:read', 'node:write']
+        createdAt:
+            groups: ['node:read']
+        updatedAt:
+            groups: ['node:read']
+        createdBy:
+            groups: ['node:read']
+        updatedBy:
+            groups: ['node:read']

@@ -1,0 +1,28 @@
+{
+  "name": "Eduity Test",
+  "companyType": "Sole Proprietor",
+  "missionStatement": "To bring forth a new way of job inventorying",
+  "totalEmployees": 10,
+  "financialYearEnds": "2021-02-12T06:27:18.440Z",
+  "industrySector": "Information Technology",
+  "industrySubsector": "Management",
+  "locations": [
+    {
+      "name": "HQ",
+      "businessOpenHours": "2021-02-12T06:27:18.440Z",
+      "businessCloseHours": "2021-02-12T06:27:18.440Z",
+      "isPrimary": true,
+      "streetAddress1": "3151 S Broad St",
+      "streetAddress2": "",
+      "city": "Chattanooga",
+      "state": "TN",
+      "country": "US",
+      "zipcode": "37405",
+      "website": "http://www.eduity.net",
+      "phoneNumber": "423-555-5555",
+      "faxNumber": "",
+      "latitudeAndLongitude": "",
+      "email": "admin@eduity.net"
+    }
+  ]
+}

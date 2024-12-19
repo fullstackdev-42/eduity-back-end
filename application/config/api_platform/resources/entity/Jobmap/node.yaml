@@ -1,0 +1,36 @@
+App\Entity\Jobmap\Node:
+    properties:
+      id:
+        identifier: false
+      uuid:
+        identifier: true
+  
+    attributes:
+      normalization_context:
+        groups: ['node:read']
+        enable_max_depth: true
+      denormalization_context:
+        groups: ['node:write']
+      route_prefix: /inventories
+  
+    collectionOperations:
+      post:
+        openapi_context: 
+          validation_groups: [Default, create]
+          tags: [Inventory Node]
+      get:
+        openapi_context:
+          tags: [Inventory Node]
+  
+    itemOperations:
+      get:
+        openapi_context:
+          tags: [Inventory Node]
+      patch:
+        access_control: "object.getOwner() == user"
+        openapi_context:
+          tags: [Inventory Node]
+      delete: 
+        access_control: "object.getOwner() == user"
+        openapi_context:
+          tags: [Inventory Node]

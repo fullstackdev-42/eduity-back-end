@@ -1,0 +1,97 @@
+parameters:
+    # Adds a fallback DATABASE_URL if the env var is not set.
+    # This allows you to run cache:warmup even if your
+    # environment variables are not available yet.
+    # You should not need to change this value.
+    env(DATABASE_URL): ''
+
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                url: '%env(resolve:POSTGRES_DATABASE_URL)%'
+                driver: 'pdo_pgsql'
+                server_version: '9.6'
+                charset: utf8
+            onet:
+                url: '%env(resolve:MYSQL_DATABASE_URL)%'
+                driver: 'pdo_mysql'
+                server_version: '8'
+                charset: utf8
+    
+    orm:
+        auto_generate_proxy_classes: true
+        default_entity_manager: default
+
+        resolve_target_entities:
+            Fxp\Component\Security\Model\UserInterface: App\Entity\User
+            Fxp\Component\Security\Model\RoleInterface: App\Entity\ACL\Role
+            Fxp\Component\Security\Model\PermissionInterface: App\Entity\ACL\Permission
+            Fxp\Component\Security\Model\GroupInterface: App\Entity\ACL\Group
+            Fxp\Component\Security\Model\SharingInterface: App\Entity\ACL\Sharing
+
+        entity_managers:
+            default:          
+                connection: default
+                auto_mapping: true
+                naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+
+                mappings:
+                    App:
+                        is_bundle: false
+                        type: annotation
+                        dir: '%kernel.project_dir%/src/Entity'
+                        prefix: 'App\Entity'
+                        alias: App  
+                    gedmo_loggable:
+                        type: annotation
+                        prefix: Gedmo\Loggable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                        alias: GedmoLoggable # (optional) it will default to the name set for the mapping
+                        is_bundle: false
+                
+                filters:
+                    softdeleteable:
+                        class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                        enabled: true
+                dql:
+                    datetime_functions:
+                        date:           Oro\ORM\Query\AST\Functions\SimpleFunction
+                        time:           Oro\ORM\Query\AST\Functions\SimpleFunction
+                        timestamp:      Oro\ORM\Query\AST\Functions\SimpleFunction
+                        convert_tz:     Oro\ORM\Query\AST\Functions\DateTime\ConvertTz
+                    numeric_functions:
+                        timestampdiff:  Oro\ORM\Query\AST\Functions\Numeric\TimestampDiff
+                        dayofyear:      Oro\ORM\Query\AST\Functions\SimpleFunction
+                        dayofmonth:     Oro\ORM\Query\AST\Functions\SimpleFunction
+                        dayofweek:      Oro\ORM\Query\AST\Functions\SimpleFunction
+                        week:           Oro\ORM\Query\AST\Functions\SimpleFunction
+                        day:            Oro\ORM\Query\AST\Functions\SimpleFunction
+                        hour:           Oro\ORM\Query\AST\Functions\SimpleFunction
+                        minute:         Oro\ORM\Query\AST\Functions\SimpleFunction
+                        month:          Oro\ORM\Query\AST\Functions\SimpleFunction
+                        quarter:        Oro\ORM\Query\AST\Functions\SimpleFunction
+                        second:         Oro\ORM\Query\AST\Functions\SimpleFunction
+                        year:           Oro\ORM\Query\AST\Functions\SimpleFunction
+                        sign:           Oro\ORM\Query\AST\Functions\Numeric\Sign
+                        pow:            Oro\ORM\Query\AST\Functions\Numeric\Pow
+                        round:          Oro\ORM\Query\AST\Functions\Numeric\Round
+                    string_functions:
+                        md5:            Oro\ORM\Query\AST\Functions\SimpleFunction
+                        group_concat:   Oro\ORM\Query\AST\Functions\String\GroupConcat
+                        concat_ws:      Oro\ORM\Query\AST\Functions\String\ConcatWs
+                        cast:           Oro\ORM\Query\AST\Functions\Cast
+                        replace:        Oro\ORM\Query\AST\Functions\String\Replace
+                        date_format:    Oro\ORM\Query\AST\Functions\String\DateFormat
+
+            onet:
+                connection: onet
+                
+                mappings:
+                    ONet:
+                        is_bundle: false
+                        type: annotation
+                        dir: '%kernel.project_dir%/src/Eduity/ONetBundle/Entity'
+                        prefix: 'App\Eduity\ONetBundle\Entity'
+                        alias: ONet  

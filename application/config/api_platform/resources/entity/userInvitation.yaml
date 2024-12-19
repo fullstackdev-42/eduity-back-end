@@ -1,0 +1,34 @@
+App\Entity\UserInvitation:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+  attributes:
+    normalization_context:
+      groups: ['user_invitation:read']
+    denormalization_context:
+      groups: ['user_invitation:write']
+
+  collectionOperations:
+    post:
+        openapi_context: 
+            validation_groups: [Default, create]
+            tags: [User Invitation]
+    get:
+        openapi_context: 
+            tags: [User Invitation]
+
+  itemOperations:
+    get:
+      access_control: "object.owner == user or object.user == user"
+      openapi_context:
+        tags: [User Invitation]
+    patch:
+      access_control: "object.owner == user"
+      openapi_context:
+        tags: [User Invitation]
+    delete: 
+      access_control: "object.owner == user"
+      openapi_context:
+        tags: [User Invitation]

@@ -1,0 +1,28 @@
+App\Entity\ACL\Permission:
+  properties:
+    id:
+      identifier: false
+    uuid:
+      identifier: true
+
+  attributes:
+      route_prefix: /security
+      normalization_context:
+        groups: ['permission:read']
+      denormalization_context:
+        groups: ['permission:write']
+
+  collectionOperations:
+    post:
+      output: false
+      status: 404
+      openapi_context: 
+        tags: [Security Permission]
+    get:
+      openapi_context:
+        tags: [Security Permission]
+            
+  itemOperations:
+    get:
+      openapi_context:
+        tags: [Security Permission]

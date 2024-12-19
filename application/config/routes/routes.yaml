@@ -1,0 +1,11 @@
+api_platform:
+    resource: .
+    type: api_platform
+    prefix: /v1
+
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+
+user_register_confirm:
+    path: /user/register/confirm/{id}/{code}

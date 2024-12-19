@@ -1,0 +1,10 @@
+App\Entity\ACL\SecurityResource:
+    attributes:
+        id:
+            groups: ['security_resource:read']
+        subject:
+            groups: ['security_resource:read']
+        identity:
+            groups: ['security_resource:read']
+        permissions:
+            groups: ['security_resource:read', 'security_resource:write']

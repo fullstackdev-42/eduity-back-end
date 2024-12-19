@@ -1,0 +1,25 @@
+App\Entity\Jobmap\Attribute:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['attribute:read']
+        revisionId: 
+            groups: ['attribute:read', 'attribute:write']
+        name: 
+            groups: ['attribute:read', 'attribute:write']
+        value:
+            groups: ['attribute:read', 'attribute:write']
+        unit:
+            groups: ['attribute:read', 'attribute:write']
+        originatorType:
+            groups: ['attribute:read', 'attribute:write']
+        originatorId:
+            groups: ['attribute:read', 'attribute:write']
+        createdAt:
+            groups: ['attribute:read']
+        updatedAt:
+            groups: ['attribute:read']
+        createdBy:
+            groups: ['attribute:read']
+        updatedBy:
+            groups: ['attribute:read']

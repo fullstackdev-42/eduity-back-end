@@ -1,0 +1,19 @@
+App\Entity\Feedback\PollOption:
+    attributes:
+        uuid:
+            serialized_name: id
+            groups: ['pollOption:read']
+        poll:
+            groups: ['pollOption:read', 'pollOption:write']
+        value:
+            groups: ['pollOption:read', 'pollOption:write']
+        description:
+            groups: ['pollOption:read', 'pollOption:write']
+        order:
+            groups: ['pollOption:read', 'pollOption:write']
+        pollRatings:
+            groups: ['pollOption:read', 'pollOption:write']
+        createdAt:
+            groups: ['pollOption:read']
+        updatedAt:
+            groups: ['pollOption:read']

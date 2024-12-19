@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <style>
+            textarea {
+                width: 100%;
+                height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        {{ form(form) }}
+        <br>
+        {% if data is not empty %}
+            {% if data.message is defined %}
+                Message: <code>{{ data.message }}</code>
+            {% endif %}
+            {% if data.token is defined %}
+                Token: <textarea readonly="readonly">Bearer {{ data.token }}</textarea>
+            {% endif %}
+        {% endif %}
+    </body>
+</html>
